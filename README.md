@@ -1,0 +1,1 @@
+Автоматические тесты проекта Stellar Burgers. Используется pytest, requests, allure-report
