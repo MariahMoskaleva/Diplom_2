@@ -1,40 +1,74 @@
-diff --git a/README.md b/README.md
-index 1828f67d6675f5d50091ad40a038665e06f5120d..997b289d06c5c0d50df8a97c440797ad865ca1b4 100644
---- a/README.md
-+++ b/README.md
-@@ -1 +1,34 @@
--Автоматические тесты проекта Stellar Burgers. Используется pytest, requests, allure-report
-+# Stellar Burgers API tests
-+
-+Automated tests for the Stellar Burgers project. Pytest and Allure are used for test execution and reporting.
-+
-+## Setup
-+
-+Install the dependencies listed in `requirements.txt`:
-+
-+```bash
-+pip install -r requirements.txt
-+```
-+
-+The tests require two environment variables that can be placed in a `.env` file or exported in your shell:
-+
-+- `BASE_URL` – the base address of the API under test.
-+- `DEFAULT_HEADERS` – default HTTP headers sent with every request (for example `{"Content-Type": "application/json"}`).
-+
-+`python-dotenv` will load variables from a `.env` file automatically when the tests run.
-+
-+## Running tests
-+
-+Execute the test suite with:
-+
-+```bash
-+pytest -vv
-+```
-+
-+To generate an Allure report you can run:
-+
-+```bash
-+pytest --alluredir=./allure-results
-+allure serve ./allure-results
-+```
-+
+# 🌟 Stellar Burgers API Tests
+
+Этот репозиторий содержит автоматические тесты для REST API проекта **Stellar Burgers**.  
+В качестве фреймворка используется `pytest`, а для отчётности — `Allure`.
+
+---
+
+## 📦 Установка
+
+1. Создайте и активируйте виртуальное окружение:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # или venv\Scripts\activate на Windows
+   ```
+
+2. Установите зависимости:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+---
+
+## ⚙️ Конфигурация
+
+Задайте переменные окружения, например в файле `.env`:
+
+| Переменная        | Назначение                                |
+|-------------------|--------------------------------------------|
+| `BASE_URL`        | Базовый URL тестируемого API              |
+| `DEFAULT_HEADERS` | Заголовки по умолчанию (в JSON-формате)   |
+
+✅ Переменные автоматически подгружаются с помощью `python-dotenv`.
+
+Также добавьте файл-шаблон `.env.example`, чтобы другим было удобно настроиться.
+
+---
+
+## 🚀 Запуск тестов
+
+Запуск всех тестов с подробным выводом:
+```bash
+pytest -vv
+```
+
+---
+
+## 📊 Allure-отчёты
+
+Для генерации и отображения отчёта Allure:
+```bash
+pytest --alluredir=./allure-results
+allure serve ./allure-results
+```
+
+---
+
+## 🧪 Используемые технологии
+
+- `pytest`
+- `requests`
+- `allure-pytest`
+- `python-dotenv`
+
+---
+
+## 👤 Авторы
+
+- [MariahMoskaleva](https://github.com/MariahMoskaleva)
+
+---
+
+## 📝 Лицензия
+
+Свободно используйте для обучения или автоматизации тестирования.
