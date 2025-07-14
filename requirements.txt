@@ -12,3 +12,4 @@ pip~=23.2.1
 typing_extensions~=4.14.0
 requests~=2.32.4
 Faker~=37.4.0
+pydantic~=2.11.7

@@ -32,7 +32,8 @@ class ApiClient:
         response = requests.delete(url=url, headers=headers)
         return response
 
-    def patch(self, path: str, headers=None, **kwargs):
+    def patch(self, path: str, json=None, headers=None, **kwargs):
         url = self._full_url(path)
-        response = requests.patch(url=url, headers=headers)
+        response = requests.patch(url=url, json=json, headers=headers, **kwargs)
         return response
+

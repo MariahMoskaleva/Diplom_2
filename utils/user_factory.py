@@ -1,5 +1,6 @@
 import random
 import string
+import uuid
 
 from faker import Faker
 
@@ -13,20 +14,28 @@ def generate_password(length=8):
 
 def generate_user_data():
     return {
-        "email": fake.email(),
+        "email": f"user_{uuid.uuid4()}@test.com",
         "password": generate_password(),
         "name": fake.first_name()
     }
 
 
-def generate_invalid_user_data(missing_fields: list):
+def generate_invalid_user_data(missing_fields=None):
     invalid_payload = {
-        "email": fake.email(),
+        "email": fake.unique.email(),
         "password": generate_password(),
         "name": fake.first_name()
     }
 
-    for field in missing_fields:
-        invalid_payload.pop(field)
+    if missing_fields:
+        for field in missing_fields:
+            invalid_payload.pop(field)
 
     return invalid_payload
+
+
+def generate_new_user_data_for_update(actual_payload, changing_fields):
+    updated_payload = actual_payload.copy()
+    updated_payload.update(changing_fields)
+    return updated_payload
+
